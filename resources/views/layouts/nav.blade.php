@@ -39,15 +39,20 @@
             <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10 my-2 ms-md-auto">
                 <ul class="navbar-nav flex-row flex-wrap">
                     <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->name }}
-                        </a>
 
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <i class="bi bi-person-circle"></i> {{ Auth::user()->name }}
+                        </a>
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('logout') }}"
+
+                            <a class="dropdown-item" href="{{ route('profile') }}">
+                                <i class="bi bi-person-fill"></i> My Profile
+                            </a>
+                            <hr>
+                            <a class="dropdown-item text-danger" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
+                                <i class="bi bi-lock-fill"></i> Logout
                             </a>
 
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
